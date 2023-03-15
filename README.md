@@ -27,7 +27,7 @@ http://162.55.220.72:5005/user_info_3
 
 1. Отправить запрос (POST).
 ```
-Body form-data
+Body form-data:
 name: Olga
 age: 45
 salary: 35000
@@ -248,7 +248,7 @@ resp.salary.forEach((item, i) => console.log(`Вывести в консоль $
 3. Вставить параметр name из окружения в name
 4. Отправить запрос. (POST)
 ```
-Body form-data
+Body form-data:
 name: {{name}}
 age: {{age}}
 salary: {{salary}}
