@@ -32,6 +32,7 @@ name: Olga
 age: 45
 salary: 35000
 ```
+> Response: { "age": "45", "family": { "children": [ [ "Alex", 24 ], [ "Kate", 12 ] ], "u_salary_1_5_year": 140000 }, "name": "Olga", "salary": 35000 }
 2. Статус код 200
 ```js
 pm.test("Status code is 200", function () {
@@ -89,6 +90,13 @@ pm.test("Test family salary", function () {
 ### /object_info_3
 
 1. Отправить запрос (GET).
+```
+Params:
+name: Petr
+age: 60
+salary: 70000
+```
+> Response: { "age": "60", "family": { "children": [ [ "Alex", 24 ], [ "Kate", 12 ] ], "pets": { "cat": { "age": 3, "name": "Sunny" }, "dog": { "age": 4, "name": "Luky" } }, "u_salary_1_5_year": 280000 }, "name": "Petr", "salary": 70000 }
 2. Статус код 200
 ```js
 pm.test("Status code is 200", function () {
@@ -147,6 +155,13 @@ pm.test("Dog age is 4", function () {
 http://162.55.220.72:5005/object_info_4
 
 1. Отправить запрос (GET).
+```
+Params:
+name: Anna
+age: 37
+salary: 55000
+```
+> Response: { "age": 37, "name": "Anna", "salary": [ 55000, "110000", "165000" ] }
 2. Статус код 200
 ```js
 pm.test("Status code is 200", function () {
@@ -232,6 +247,13 @@ resp.salary.forEach((item, i) => console.log(`Вывести в консоль $
 2. Вставить параметр age из окружения в age
 3. Вставить параметр name из окружения в name
 4. Отправить запрос. (POST)
+```
+Body form-data
+name: {{name}}
+age: {{age}}
+salary: {{salary}}
+```
+> Response: { "person": { "u_age": 37, "u_name": [ "Anna", 55000, 37 ], "u_salary_5_years": 231000.0 }, "qa_salary_after_1.5_year": 181500.0, "qa_salary_after_12_months": 148500.0, "qa_salary_after_3.5_years": 209000.0, "qa_salary_after_6_months": 110000, "start_qa_salary": 55000 }
 5. Статус код 200
 ```js
 pm.test("Status code is 200", function () {
